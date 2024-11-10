@@ -1,0 +1,40 @@
+@mixin desktop-xl {
+    @media screen and (max-width: 1600px) {
+      @content;
+    }
+  }
+  @mixin desktop-lg {
+    @media screen and (max-width: 1440px) {
+      @content;
+    }
+  }
+  @mixin desktop-sm {
+    @media screen and (max-width: 1366px) {
+      @content;
+    }
+  }
+  @mixin ipad-pro {
+    @media screen and (max-width: 1170px) {
+      @content;
+    }
+  }
+  @mixin ipad-mini {
+    @media screen and (max-width: 768px) {
+      @content;
+    }
+  }
+  @mixin mobile-lg {
+    @media screen and (max-width: 500px) {
+      @content;
+    }
+  }
+  @mixin mobile-sm {
+    @media screen and (max-width: 375px) {
+      @content;
+    }
+  }
+  @mixin custom_size($value) {
+    @media screen and (max-width: $value) {
+      @content;
+    }
+  }

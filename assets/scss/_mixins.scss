@@ -1,0 +1,36 @@
+@mixin transition($element,$speed) {
+    transition: $element $speed ease-in-out;
+    -webkit-transition: $element $speed ease-in-out;
+    -moz-transition: $element $speed ease-in-out;
+    -ms-transition: $element $speed ease-in-out;
+    -o-transition: $element $speed ease-in-out;
+}
+
+@mixin translate($value1) {
+    transform: translate($value1);
+    -webkit-transform: translate($value1);
+    -moz-transform: translate($value1);
+    -ms-transform: translate($value1);
+    -o-transform: translate($value1);
+}
+
+@mixin radius($value) {
+    border-radius: $value;
+    -webkit-border-radius: $value;
+    -moz-border-radius: $value;
+    -ms-border-radius: $value;
+    -o-border-radius: $value;
+}
+
+@mixin animation($name, $speed, $easing ) {
+    animation: $name $speed $easing ;
+    -webkit-animation: $name $speed $easing ;
+}
+
+@mixin rotator($value) {
+    transform: rotate($value);
+    -webkit-transform: rotate($value);
+    -moz-transform: rotate($value);
+    -ms-transform: rotate($value);
+    -o-transform: rotate($value);
+}

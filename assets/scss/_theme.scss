@@ -1,0 +1,164 @@
+$body_font: "Poppins", sans-serif;
+$heading_font: "Poppins", sans-serif;
+$text_font: "Poppins", sans-serif;
+
+$breakpoints: "sm" "480px", "md" "768px", "lg" "1170px", "xl" "1366px", "default" "";
+
+$theme-colors: "black" #000, "gray" #a2a2a2, "white" #fff, "link" #000;
+
+/* Colors */
+@each $clrname, $hexcode in $theme-colors {
+  @if $clrname == link {
+    a {
+      color: $hexcode;
+    }
+  } @else {
+    .text-#{$clrname} {
+      color: $hexcode;
+    }
+    .bg-#{$clrname} {
+      color: $hexcode;
+    }
+  }
+}
+/* Colors END */
+
+/* Headings */
+$headings: (
+  1366px: (
+    "1" "100",
+    "2" "85",
+    "3" "70",
+    "4" "45",
+    "5" "24",
+    "6" "18",
+  ),
+  1170px: (
+    "1" "80",
+    "2" "65",
+    "3" "50",
+    "4" "35",
+    "5" "22",
+    "6" "16",
+  ),
+  768px: (
+    "1" "60",
+    "2" "55",
+    "3" "30",
+    "4" "25",
+    "5" "20",
+    "6" "14",
+  ),
+  480px: (
+    "1" "40",
+    "2" "45",
+    "3" "20",
+    "4" "20",
+    "5" "18",
+    "6" "12",
+  ),
+  default: (
+    "1" "100",
+    "2" "85",
+    "3" "70",
+    "4" "45",
+    "5" "24",
+    "6" "18",
+  ),
+);
+
+@each $break, $sizes in $headings {
+  @if $break == default {
+    @each $h-num, $h-sizes in $sizes {
+      h#{$h-num} {
+        font-size: #{$h-sizes}px;
+      }
+    }
+  } @else {
+    @media screen and (max-width: $break) {
+      @each $h-num, $h-sizes in $sizes {
+        h#{$h-num} {
+          font-size: #{$h-sizes}px !important;
+        }
+      }
+    }
+  }
+}
+
+/* Headings END */
+
+$paras: "small" "14", "medium" "16", "large" "20", "default" "18";
+/* Paragraph */
+@each $p-num, $p-sizes in $paras {
+  @if $p-num == default {
+    /*Default Paragraph */
+    p {
+      font-size: #{$p-sizes}px;
+    }
+  } @else {
+    p.#{$p-num} {
+      font-size: #{$p-sizes}px;
+    }
+  }
+}
+/* Paragraph END */
+
+$spaces: (
+  0,
+  1,
+  2,
+  3,
+  4,
+  5
+);
+$sides: (top, right, bottom, left);
+
+@each $break, $screen in $breakpoints {
+  @if $break == "default" {
+    @each $space in $spaces {
+      .m-#{$space} {
+        margin: #{$space}rem;
+      }
+      .p-#{$space} {
+        padding: #{$space}rem;
+      }
+    
+    
+    
+      @each $side in $sides {
+        .m#{str-slice($side, 0, 1)}-#{$space} {
+          margin-#{$side}: #{$space}rem ;
+        }
+        .p#{str-slice($side, 0, 1)}-#{$space} {
+          padding-#{$side}: #{$space}rem ;
+        }
+      }
+    }
+  } @else {
+    @media screen and (max-width: $screen) {
+      @each $space in $spaces {
+        .m-#{$break}-#{$space} {
+          margin: #{$space}rem !important;
+        }
+        .p-#{$break}-#{$space} {
+          padding: #{$space}rem !important;
+        }
+      
+      
+      
+        @each $side in $sides {
+          .m#{str-slice($side, 0, 1)}-#{$break}-#{$space} {
+            margin-#{$side}: #{$space}rem !important;
+          }
+          .p#{str-slice($side, 0, 1)}-#{$break}-#{$space} {
+            padding-#{$side}: #{$space}rem !important;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+
